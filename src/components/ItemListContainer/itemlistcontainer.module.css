@@ -1,0 +1,10 @@
+.itemlistcont {
+    display: flex;
+    justify-content: center;
+}
+
+
+img {
+    width: 260px;
+    height: 260px;
+}
