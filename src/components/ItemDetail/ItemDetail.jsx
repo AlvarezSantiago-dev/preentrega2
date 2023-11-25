@@ -1,12 +1,21 @@
-export const ItemDetail = ({ name, description, image, stock }) => {
-    return (
-        <div>
-            <p>Nombre: {name}</p>
-            <p>Descripción: {description}</p>
-            <p>Stock: {stock}</p>
+import { Contador } from "../Contador/Contador";
+import styles from "./itemdetail.module.css"
+export const ItemDetail = ({ name, description, image, stock, price }) => {
+
+
+    return(
+        <>
+        <div className={styles.itemdetail}>
+            <h4>{name}</h4>
+            <img src={image} alt="" />
             <div>
-                <img src={image} alt={name} style={{ maxWidth: "100%" }} />
+                <div>
+                    <p> {price} </p>
+                    <Contador max={stock}/>
+                </div>
+                <div><p>{description}</p></div>
             </div>
         </div>
-    );
+        </>
+    )
 };

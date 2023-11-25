@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
 import { Loading } from "../Loading/Loading";
 import { getProductById } from "../../asyncMock";
-import { Item } from "../Item/Item";
 
 export const ItemDetailContainer = () => {
     const { id } = useParams();
@@ -12,8 +11,7 @@ export const ItemDetailContainer = () => {
 
     useEffect(() => {
         setIsLoading(true);
-        console.log("ID recibido a través de useParams:", id);
-
+    
         getProductById(id)
             .then((resp) => {
                 setItem(resp);
@@ -26,11 +24,8 @@ export const ItemDetailContainer = () => {
     }, [id]);
 
     return (
-        <>
         <div>
-        {isLoading ? <Loading /> : id && <ItemDetail {...item} />}
+            {isLoading ? <Loading /> : item ? <ItemDetail {...item} /> : <p>Detalles no disponibles</p>}
         </div>
-            
-        </>
     );
 };

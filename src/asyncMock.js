@@ -7,7 +7,7 @@ export const products = [
         name: "Nike Dunk Low Premium",
         price: 123.999,
         image: "https://nikearprod.vtexassets.com/arquivos/ids/681738-800-800?v=638224573454330000&width=800&height=800&aspect=true",
-        description: `Del 16 al 1, el "CO.JP Tournament" se enfrentó a los lanzamientos de calzado más icónicos de Japón de los 90 e inicios de los 2000 uno a uno. Con una combinación de elementos prominentes de los mejores contendientes, este diseño ofrece un look excepcional de lo que significa ser el mejor. Los colores hacen alusión al codiciado Air Max 90 "Escape", el cuero con estampado de serpiente y cocodrilo emula el AF1 de la competencia y la siempre clásica gamuza vintage mejora tu juego. Firmado con el logotipo de Nike Limited Edition, tu look está certificado como legítimo. Pasa la corona y da la bienvenida al Dunk Low "Head 2 Head".`
+        description: "Soy una description"
 
     },
     {
@@ -179,17 +179,14 @@ export const getProducts = () => {
 
 export const getProductById = (id) => {
     return new Promise((resolve, reject) => {
-        if (products.length > 0) {
-            const product = products.find((p) => p.id === id);
+        const product = products.find((p) => p.id === parseInt(id)); 
 
-            setTimeout(() => {
-                if (!product) {
-                    reject(`No se encuentra el producto con el id ${id}`);
-                }
-                resolve(products);
-            }, 2000);
-        } else {
-            reject("No hay productos");
-        }
+        setTimeout(() => {
+            if (!product) {
+                reject(`No se encuentra el producto con el id ${id}`);
+            } else {
+                resolve(product);
+            }
+        }, 2000);
     });
 };

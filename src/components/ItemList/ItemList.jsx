@@ -1,5 +1,4 @@
 import { Item } from "../Item/Item"
-import { ItemDetail } from "../ItemDetail/ItemDetail"
 import styles from "./Itemlist.module.css"
 
 export const ItemList = ({products}) => {
